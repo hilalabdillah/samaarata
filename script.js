@@ -13,12 +13,11 @@
 
   function finishPreloader() {
     if (preloader.classList.contains('fading') || preloader.classList.contains('hidden')) return;
-    sessionStorage.setItem('samaarata-intro-seen', '1');
     preloader.classList.add('fading');
     setTimeout(function () { preloader.classList.add('hidden'); }, 750);
   }
 
-  if (SHOW_INTRO && !sessionStorage.getItem('samaarata-intro-seen')) {
+  if (SHOW_INTRO) {
     video.muted = true;
     video.play().catch(function () {});
     updateMuteGlyph();
